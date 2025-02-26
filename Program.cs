@@ -32,7 +32,6 @@ namespace ReadXML
             {
                 if (kvp.Value > 1)
                 {
-                    // should add the key the number in Value - 1 for needing at least 1 in the XML.  2 is a dup, 3 means you need to delete 2
                     for (int i = 0; i < kvp.Value - 1; i++)
                     {
                         duplicates.Add(kvp.Key);
@@ -57,10 +56,8 @@ namespace ReadXML
                 {
                     if (attribute.Name.ToString().Trim().Equals("id"))
                     {
-                        //Console.WriteLine($"{attribute.Value}");
                         rules.Add(attribute.Value);
                     }
-                    //Console.WriteLine($"{indent}  Attribute: {attribute.Name} = {attribute.Value}");
                 }
 
                 foreach (XElement child in element.Elements())
@@ -151,9 +148,13 @@ namespace ReadXML
                 {
                     GetFileInfo(filePath);
                 }
-                if (folderPath.Length > 0)
+                else if (folderPath.Length > 0)
                 {
                     GetFolderInfo(folderPath);
+                }
+                else
+                {
+                    Console.WriteLine("Command line invalid, Enter a --FilePath or --FolderPath with a value.";
                 }
             }
         }

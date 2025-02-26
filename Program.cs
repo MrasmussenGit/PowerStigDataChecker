@@ -37,7 +37,7 @@ namespace ReadXML
                     {
                         duplicates.Add(kvp.Key);
                     }
-                    //duplicates.Add(kvp.Key);
+                    
                 }
             }
 
